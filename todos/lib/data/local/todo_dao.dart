@@ -4,7 +4,9 @@ import 'package:todos/objectbox.g.dart';
 
 abstract class TodoDAO {
   Future<List<TodoModel>> getAll();
+
   Future<List<TodoModel>> getTodoListByCondition({required bool isFinished});
+
   Future<void> insertOrUpdate({required TodoModel data});
 }
 
@@ -22,10 +24,13 @@ class TodoDAOImpl extends TodoDAO {
 
   @override
   Future<void> insertOrUpdate({required TodoModel data}) async {
+    print("data: ${data.toJson()}");
+
     final store = await openStore();
     try {
       final box = store.box<TodoModel>();
-      box.put(data);
+      final id = box.put(data);
+      print("id: $id");
     } catch (ex) {
       throw IOException(errorCode: ioException, errorMessage: ex.toString());
     } finally {
@@ -52,6 +57,9 @@ class TodoDAOImpl extends TodoDAO {
     } finally {
       store.close();
     }
+    result.forEach((element) {
+      print("todo: ${element.toJson()}");
+    });
     return result;
   }
 }
