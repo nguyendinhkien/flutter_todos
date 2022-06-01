@@ -132,12 +132,12 @@ mixin BasePageMixin {
   }
 
   Widget buildNoDataMessage() {
-    return LayoutBuilder(builder: (context, constrainst) {
+    return LayoutBuilder(builder: (context, constraint) {
       return SizedBox(
-        height: constrainst.maxHeight,
+        height: constraint.maxHeight,
         child: Center(
           child: Text(
-            AppLocalizations.shared.commonMessageNoData,
+            AppLocalizations.of(context).commonMessageNoData,
             style: bodyMedium.copyWith(
                 color: Colors.white, fontSize: 17, fontWeight: FontWeight.w400),
           ),

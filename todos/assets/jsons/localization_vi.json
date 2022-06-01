@@ -1,0 +1,18 @@
+{
+  "common_message_no_data": "Không có dữ liệu",
+  "common_tab_all": "Tất cả",
+  "common_tab_doing": "Đang làm",
+  "common_tab_done": "Đã xong",
+  "common_button_save": "Lưu",
+  "common_message_mark_todo_as_doing": "Đánh dấu mục này là \"Đang làm\"?",
+  "common_message_mark_todo_as_done": "Đánh dấu mục này là \"Đã xong\"?",
+  "common_message_server_maintaince": "Server bảo trì",
+  "common_message_internet_problem": "Không thể kết nối đến server",
+  "add_new_toto_title": "Thêm công việc",
+  "add_new_toto_label_title": "Tiêu đề",
+  "add_new_toto_hint_label_title": "Nhập tiêu đề",
+  "add_new_toto_label_desciption": "Mô tả",
+  "add_new_toto_hint_label_desciption": "Nhập mô tả",
+  "add_new_toto_title_empty_error": "Tiêu đề không được để trống",
+  "add_new_toto_title_description_error": "Mô tả không được để trống"
+}

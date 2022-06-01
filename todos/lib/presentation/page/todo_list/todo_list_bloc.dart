@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:todos/domain/model/todo_model.dart';
 import 'package:todos/domain/usecase/index.dart';
 import 'package:todos/presentation/base/index.dart';
-import 'package:todos/presentation/page/todo_list/todo_list_state.dart';
 import 'package:todos/presentation/utils/index.dart';
 
 import '../../../core/error/failures.dart';
@@ -12,11 +11,12 @@ class TodoListBloc extends BaseBloc<BaseEvent, TodoListState> {
   final GetAllTodoUseCase _getAllTodoUseCase;
   final UpdateTodoUseCase _updateTotoUseCase;
   final GetTodoListByConditionUseCase _getTodoListByConditionUseCase;
+
   TodoListBloc(this._getAllTodoUseCase, this._updateTotoUseCase,
       this._getTodoListByConditionUseCase)
       : super(initState: TodoListState()) {
-    on<OnOnFetchingTodoListEvent>((e, m) => _onFetchingTotoHandler(e, m));
-    on<OnRequestUpdateTodoEvent>((e, m) => _onUpdateTodoEventHandler(e, m));
+    on<OnOnFetchingTodoListEvent>(_onFetchingTotoHandler);
+    on<OnRequestUpdateTodoEvent>(_onUpdateTodoEventHandler);
   }
 
   _onFetchingTotoHandler(

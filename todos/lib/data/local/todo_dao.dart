@@ -24,13 +24,10 @@ class TodoDAOImpl extends TodoDAO {
 
   @override
   Future<void> insertOrUpdate({required TodoModel data}) async {
-    print("data: ${data.toJson()}");
-
     final store = await openStore();
     try {
       final box = store.box<TodoModel>();
       final id = box.put(data);
-      print("id: $id");
     } catch (ex) {
       throw IOException(errorCode: ioException, errorMessage: ex.toString());
     } finally {
@@ -57,9 +54,6 @@ class TodoDAOImpl extends TodoDAO {
     } finally {
       store.close();
     }
-    result.forEach((element) {
-      print("todo: ${element.toJson()}");
-    });
     return result;
   }
 }

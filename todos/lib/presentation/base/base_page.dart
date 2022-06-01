@@ -51,7 +51,7 @@ abstract class BasePageState<T extends BaseBloc<BaseEvent, BaseState>,
         final result = await showAlert(
           primaryColor: AppColors.primaryColor,
           context: context,
-          message: AppLocalizations.shared.commonMessageServerMaintenance,
+          message: AppLocalizations.of(context).commonMessageServerMaintenance,
         );
         if (result) {
           navigator.popToRoot(context: context);
@@ -63,9 +63,9 @@ abstract class BasePageState<T extends BaseBloc<BaseEvent, BaseState>,
       Logger().d('[Debug]: error ${state.failure?.message}');
       if (state.failure!.message == internetErrorMessage ||
           state.failure!.message == socketErrorMessage) {
-        message = AppLocalizations.shared.commonMessageConnectionError;
+        message = AppLocalizations.of(context).commonMessageConnectionError;
       } else if (state.failure!.message == serverErrorMessage) {
-        message = AppLocalizations.shared.commonMessageServerMaintenance;
+        message = AppLocalizations.of(context).commonMessageServerMaintenance;
       } else {
         message = state.failure!.message ?? unknownErrorMessage;
       }

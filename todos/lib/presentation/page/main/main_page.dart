@@ -102,15 +102,15 @@ class _BottomNavigationBarState extends State<_BottomNavigationBar> {
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: const Icon(Icons.all_out),
-          label: AppLocalizations.shared.commonTabAll,
+          label: AppLocalizations.of(context).commonTabAll,
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.pending_rounded),
-          label: AppLocalizations.shared.commonTabDoing,
+          label: AppLocalizations.of(context).commonTabDoing,
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.done_all),
-          label: AppLocalizations.shared.commonTabDone,
+          label: AppLocalizations.of(context).commonTabDone,
         ),
       ],
     );

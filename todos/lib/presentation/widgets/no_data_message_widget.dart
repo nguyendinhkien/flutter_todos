@@ -8,7 +8,7 @@ class NoDataMessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(title ?? AppLocalizations.shared.commonMessageNoData,
+      child: Text(title ?? AppLocalizations.of(context).commonMessageNoData,
           style: style ??
               titleMedium.copyWith(
                   color: AppColors.neutral2,

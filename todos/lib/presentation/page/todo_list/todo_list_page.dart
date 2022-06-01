@@ -23,6 +23,7 @@ class TodoListPageState extends BasePageState<TodoListBloc, TodoListPage> {
   final RefreshController _controller =
       RefreshController(initialRefresh: false);
   StreamSubscription? _subscription;
+
   @override
   void initState() {
     super.initState();
@@ -86,8 +87,8 @@ class TodoListPageState extends BasePageState<TodoListBloc, TodoListPage> {
 
   _showUpdateConfirmDialog(TodoModel todo) async {
     final message = todo.isFinished
-        ? 'Mark this item is "Doing" ?'
-        : 'Mark this item is "Done" ?';
+        ? AppLocalizations.of(context).commonMessageMarkTodoAsDoing
+        : AppLocalizations.of(context).commonMessageMarkTodoAsDone;
     final isOk = await showAlert(context: context, message: message);
     if (isOk) {
       todo.isFinished = !todo.isFinished;

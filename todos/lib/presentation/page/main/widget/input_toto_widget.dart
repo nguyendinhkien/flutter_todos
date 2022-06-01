@@ -7,10 +7,12 @@ import 'package:todos/presentation/widgets/index.dart';
 
 class InputTodoWidget extends StatefulWidget {
   final Function(TodoModel) onConfirm;
+
   const InputTodoWidget({
     required this.onConfirm,
     Key? key,
   }) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _InputTodoWidgetState();
 }
@@ -19,6 +21,7 @@ class _InputTodoWidgetState extends State<InputTodoWidget> with BasePageMixin {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _title = TextEditingController();
   final TextEditingController _description = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -30,47 +33,48 @@ class _InputTodoWidgetState extends State<InputTodoWidget> with BasePageMixin {
             Align(
               alignment: Alignment.center,
               child: Text(
-                AppLocalizations.shared.addTotoTitle,
+                AppLocalizations.of(context).addTotoTitle,
                 style: titleLarge,
               ),
             ),
             const SizedBox(height: 20),
             Text(
-              AppLocalizations.shared.addTotoTitleLabel,
+              AppLocalizations.of(context).addTotoTitleLabel,
               style: titleSmall,
             ),
             TextFormField(
               controller: _title,
               validator: (value) {
                 return (value?.isEmpty ?? true)
-                    ? AppLocalizations.shared.addNewTodoTitleError
+                    ? AppLocalizations.of(context).addNewTodoTitleError
                     : null;
               },
               style: bodyMedium,
               decoration: InputDecoration(
                   border: outlineBorder,
-                  hintText: AppLocalizations.shared.addTotoHintTitleLabel,
+                  hintText: AppLocalizations.of(context).addTotoHintTitleLabel,
                   hintStyle: bodyMedium.copyWith(
                     color: AppColors.gray[400],
                   )),
             ),
             const SizedBox(height: 20),
             Text(
-              AppLocalizations.shared.addTotoDescriptionLabel,
+              AppLocalizations.of(context).addTotoDescriptionLabel,
               style: titleSmall,
             ),
             TextFormField(
               controller: _description,
               validator: (value) {
                 return (value?.isEmpty ?? true)
-                    ? AppLocalizations.shared.addNewTodoDescriptionError
+                    ? AppLocalizations.of(context).addNewTodoDescriptionError
                     : null;
               },
               style: bodyMedium,
               maxLines: 3,
               decoration: InputDecoration(
                   border: outlineBorder,
-                  hintText: AppLocalizations.shared.addTotoHintDescriptionLabel,
+                  hintText:
+                      AppLocalizations.of(context).addTotoHintDescriptionLabel,
                   hintStyle: bodyMedium.copyWith(
                     color: AppColors.gray[400],
                   )),
@@ -95,7 +99,7 @@ class _InputTodoWidgetState extends State<InputTodoWidget> with BasePageMixin {
                     widget.onConfirm(data);
                   }
                 },
-                title: 'Save',
+                title: AppLocalizations.of(context).commonButtonSave,
                 titleStyle: titleMedium.copyWith(color: Colors.white),
               ),
             )
