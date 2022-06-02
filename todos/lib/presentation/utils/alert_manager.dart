@@ -39,32 +39,23 @@ class AlertManager {
         pageBuilder: (context, animation1, animation2) {
           return Scaffold(
             backgroundColor: Colors.transparent,
-            body: FocusDetector(
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: padding,
-                      child: RoundContainer(
-                        allRadius: 16,
-                        color: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                              padding: contentMargin,
-                              child: child,
-                            ),
-                          ],
-                        ),
+            body: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: padding,
+                    child: RoundContainer(
+                      allRadius: 16,
+                      color: Colors.white,
+                      child: Padding(
+                        padding: contentMargin,
+                        child: child,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },
